@@ -7,7 +7,7 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div>
+    <div className="">
       <main>{children}</main>
     </div>
   );
