@@ -7,7 +7,7 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="">
+    <div className="h-screen bg-linear-to-t from-black to-[#002712]">
       <main>{children}</main>
     </div>
   );
