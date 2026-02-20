@@ -19,22 +19,18 @@ function Navbar() {
         </SignedOut>
         {/* Show the user button when the user is signed in */}
         <SignedIn>
-          <UserButton appearance={{
-      elements: {
-        avatarBox: "w-10 h-10 ring-2 ring-[#CBD5E1]",
-        userButtonPopoverCard: "rounded-xl shadow-xl",
-        userButtonPopoverActionButton: "hover:bg-blue-50",
-      },
-    }}/>
+          <UserButton
+            appearance={{
+              elements: {
+                avatarBox: "w-10 h-10 ring-2 ring-[#CBD5E1]",
+                userButtonPopoverCard: "rounded-xl shadow-xl",
+                userButtonPopoverActionButton: "hover:bg-blue-50",
+              },
+            }}
+          />
         </SignedIn>
       </div>
-      <div className="bg-white ml-auto text-black px-6 py-0.5 items-center rounded-xl">
-        <input
-          className="outline-none w-60"
-          type="text"
-          placeholder="Search city..."
-        />
-      </div>
+      <div className="ml-auto"></div>
       <div>
         <h2>Hi Reza</h2>
         <h2>Good morning</h2>

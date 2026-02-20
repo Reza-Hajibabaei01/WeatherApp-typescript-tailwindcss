@@ -89,10 +89,47 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
       if (activeIndex >= 0) handleSelect(filteredCities[activeIndex]);
     }
   };
-  
-  return (
-    <div>AutocompleteCity</div>
-  )
-}
 
-export default AutocompleteCity
+  return (
+    <div className='relative ' ref={wrapperRef}>
+      <input
+      className="bg-white outline-none w-75 text-black px-6 py-1 items-center rounded-xl"
+        type="text"
+        placeholder="Search city..."
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
+        
+      />
+      {filteredCities.length > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            border: "1px solid #ccc",
+            maxHeight: 200,
+            overflowY: "auto",
+            backgroundColor: "#fff",
+            zIndex: 99,
+          }}
+        >
+          {filteredCities.map((city, index) => (
+            <div
+              key={city.id}
+              onClick={() => handleSelect(city)}
+              style={{
+                padding: 10,
+                cursor: "pointer",
+                backgroundColor: index === activeIndex ? "#e9e9e9" : "#fff",
+              }}
+            >
+              {city.name}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
