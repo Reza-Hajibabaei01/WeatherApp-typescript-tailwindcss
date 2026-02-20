@@ -71,6 +71,24 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
     setFilteredCities([]);
     onSelect(city);
   };
+
+  // مدیریت ناوبری کیبورد:
+  // ArrowUp / ArrowDown برای حرکت
+  // Enter برای انتخاب
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (filteredCities.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      // استفاده از modulo برای اینکه اگر به انتهای لیست رسیدیم
+      // دوباره به ابتدای لیست برگردیم
+      setActiveIndex(prev => (prev + 1) % filteredCities.length);
+    } else if (e.key === "ArrowUp") {
+      setActiveIndex(prev => (prev - 1 + filteredCities.length) % filteredCities.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeIndex >= 0) handleSelect(filteredCities[activeIndex]);
+    }
+  };
   
   return (
     <div>AutocompleteCity</div>
