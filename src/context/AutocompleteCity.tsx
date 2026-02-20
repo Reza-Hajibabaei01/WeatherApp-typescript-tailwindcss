@@ -22,6 +22,34 @@ interface AutocompleteCityProps {
 // - بستن لیست با کلیک بیرون
 export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSelect }) => {
   
+  // مقدار متن داخل input
+    const [query, setQuery] = useState("");
+  
+    // لیست شهرهای فیلتر شده براساس متن جستجو
+    const [filteredCities, setFilteredCities] = useState<City[]>([]);
+  
+    // اندیس آیتم فعال برای ناوبری با کیبورد
+    const [activeIndex, setActiveIndex] = useState(-1);
+  
+    // رفرنس برای تشخیص کلیک خارج از کامپوننت
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    // هر بار که متن جستجو تغییر کند:
+    // لیست شهرها را براساس آن فیلتر می‌کنیم
+  useEffect(() => {
+    if (query === "") {
+      setFilteredCities([]);
+    } else {
+      setFilteredCities(
+        cities.filter(city =>
+          // مقایسه بدون حساسیت به حروف بزرگ و کوچک
+          city.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    }
+    setActiveIndex(-1);
+  }, [query, cities]);
+
   return (
     <div>AutocompleteCity</div>
   )
