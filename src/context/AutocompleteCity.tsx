@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-
+import React, { useEffect, useRef, useState } from "react";
 
 // مدل داده شهر که از API یا لیست ثابت دریافت می‌شود
-export interface City{
+export interface City {
   id: number;
   name: string;
   lat: string;
@@ -15,36 +14,37 @@ interface AutocompleteCityProps {
   onSelect: (city: City) => void;
 }
 
-
 // کامپوننت جستجو و انتخاب شهر با قابلیت:
 // - فیلتر زنده
 // - انتخاب با کیبورد
 // - بستن لیست با کلیک بیرون
-export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSelect }) => {
-  
+export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
+  cities,
+  onSelect,
+}) => {
   // مقدار متن داخل input
-    const [query, setQuery] = useState("");
-  
-    // لیست شهرهای فیلتر شده براساس متن جستجو
-    const [filteredCities, setFilteredCities] = useState<City[]>([]);
-  
-    // اندیس آیتم فعال برای ناوبری با کیبورد
-    const [activeIndex, setActiveIndex] = useState(-1);
-  
-    // رفرنس برای تشخیص کلیک خارج از کامپوننت
-    const wrapperRef = useRef<HTMLDivElement>(null);
+  const [query, setQuery] = useState("");
 
-    // هر بار که متن جستجو تغییر کند:
-    // لیست شهرها را براساس آن فیلتر می‌کنیم
+  // لیست شهرهای فیلتر شده براساس متن جستجو
+  const [filteredCities, setFilteredCities] = useState<City[]>([]);
+
+  // اندیس آیتم فعال برای ناوبری با کیبورد
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  // رفرنس برای تشخیص کلیک خارج از کامپوننت
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // هر بار که متن جستجو تغییر کند:
+  // لیست شهرها را براساس آن فیلتر می‌کنیم
   useEffect(() => {
     if (query === "") {
       setFilteredCities([]);
     } else {
       setFilteredCities(
-        cities.filter(city =>
+        cities.filter((city) =>
           // مقایسه بدون حساسیت به حروف بزرگ و کوچک
-          city.name.toLowerCase().includes(query.toLowerCase())
-        )
+          city.name.toLowerCase().includes(query.toLowerCase()),
+        ),
       );
     }
     setActiveIndex(-1);
@@ -53,7 +53,10 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
   // بستن dropdown هنگام کلیک بیرون از کامپوننت
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
         setFilteredCities([]);
       }
     };
@@ -81,9 +84,11 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
     if (e.key === "ArrowDown") {
       // استفاده از modulo برای اینکه اگر به انتهای لیست رسیدیم
       // دوباره به ابتدای لیست برگردیم
-      setActiveIndex(prev => (prev + 1) % filteredCities.length);
+      setActiveIndex((prev) => (prev + 1) % filteredCities.length);
     } else if (e.key === "ArrowUp") {
-      setActiveIndex(prev => (prev - 1 + filteredCities.length) % filteredCities.length);
+      setActiveIndex(
+        (prev) => (prev - 1 + filteredCities.length) % filteredCities.length,
+      );
     } else if (e.key === "Enter") {
       e.preventDefault();
       if (activeIndex >= 0) handleSelect(filteredCities[activeIndex]);
@@ -91,15 +96,14 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
   };
 
   return (
-    <div className='relative ' ref={wrapperRef}>
+    <div className="relative " ref={wrapperRef}>
       <input
-      className="bg-white outline-none w-75 text-black px-6 py-1 items-center rounded-xl"
+        className="bg-white outline-none w-75 text-black px-6 py-1 items-center rounded-xl"
         type="text"
         placeholder="Search city..."
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
-        
       />
       {filteredCities.length > 0 && (
         <div
@@ -120,7 +124,8 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
               key={city.id}
               onClick={() => handleSelect(city)}
               style={{
-                padding: 10,
+                padding: 3,
+                paddingLeft: 10,
                 cursor: "pointer",
                 backgroundColor: index === activeIndex ? "#e9e9e9" : "#fff",
               }}
@@ -132,4 +137,4 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
       )}
     </div>
   );
-}
+};

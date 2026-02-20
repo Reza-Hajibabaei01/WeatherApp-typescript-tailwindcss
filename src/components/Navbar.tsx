@@ -4,6 +4,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import SearchInput from "./SearchInput";
 
 function Navbar() {
   return (
@@ -30,7 +31,9 @@ function Navbar() {
           />
         </SignedIn>
       </div>
-      <div className="ml-auto"></div>
+      <div className="ml-auto">
+        <SearchInput />
+      </div>
       <div>
         <h2>Hi Reza</h2>
         <h2>Good morning</h2>
