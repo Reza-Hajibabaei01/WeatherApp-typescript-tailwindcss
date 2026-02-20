@@ -61,6 +61,16 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
     // حذف event listener هنگام unmount برای جلوگیری از memory leak
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
+
+  // وقتی کاربر یک شهر را انتخاب می‌کند:
+  // - مقدار input تنظیم می‌شود
+  // - لیست بسته می‌شود
+  // - مقدار انتخاب شده به کامپوننت والد ارسال می‌شود
+  const handleSelect = (city: City) => {
+    setQuery(city.name);
+    setFilteredCities([]);
+    onSelect(city);
+  };
   
   return (
     <div>AutocompleteCity</div>
