@@ -50,6 +50,18 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({ cities, onSe
     setActiveIndex(-1);
   }, [query, cities]);
 
+  // بستن dropdown هنگام کلیک بیرون از کامپوننت
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        setFilteredCities([]);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    // حذف event listener هنگام unmount برای جلوگیری از memory leak
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+  
   return (
     <div>AutocompleteCity</div>
   )
