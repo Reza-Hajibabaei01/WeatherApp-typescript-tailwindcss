@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
 
-
 interface MainLayoutProps {
   children: ReactNode;
 }
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="h-screen bg-linear-to-t from-black to-[#0F172A]">
+    <div className="h-screen bg-[#0F0F0F] py-2">
       <main>{children}</main>
     </div>
   );

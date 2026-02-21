@@ -8,7 +8,7 @@ import SearchInput from "./SearchInput";
 
 function Navbar() {
   return (
-    <div className="flex flex-row-reverse py-1 px-12 justify-between items-center bg-white/30 backdrop-blur-none">
+    <div className="flex flex-row-reverse py-1 px-12 justify-between items-center backdrop-blur-none">
       <div className="ml-8 ">
         {/* Show the sign-in and sign-up buttons when the user is signed out */}
         <SignedOut>
@@ -23,7 +23,7 @@ function Navbar() {
           <UserButton
             appearance={{
               elements: {
-                avatarBox: "w-10 h-10 ring-2 ring-[#CBD5E1]",
+                avatarBox: "w-14 h-14 ring-2 ring-[#8a8a8a]",
                 userButtonPopoverCard: "rounded-xl shadow-xl",
                 userButtonPopoverActionButton: "hover:bg-blue-50",
               },

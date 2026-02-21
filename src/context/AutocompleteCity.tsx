@@ -98,9 +98,9 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
   return (
     <div className="relative " ref={wrapperRef}>
       <input
-        className="bg-white outline-none w-75 text-black px-6 py-1 items-center rounded-xl"
+        className="bg-[#1E1E1E] outline-none w-90 h-10 text-[#8a8a8a] py-1 pl-6 pr-21.5 items-center rounded-[36px]"
         type="text"
-        placeholder="Search city..."
+        placeholder="Search your location ..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -112,11 +112,12 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
             top: "100%",
             left: 0,
             right: 0,
-            border: "1px solid #ccc",
-            maxHeight: 200,
+            border: "1px solid #8a8a8a",
+            maxHeight: 150,
             overflowY: "auto",
             backgroundColor: "#fff",
             zIndex: 99,
+            borderRadius: 10,
           }}
         >
           {filteredCities.map((city, index) => (
@@ -124,10 +125,11 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
               key={city.id}
               onClick={() => handleSelect(city)}
               style={{
+                color: "#8a8a8a",
                 padding: 3,
                 paddingLeft: 10,
                 cursor: "pointer",
-                backgroundColor: index === activeIndex ? "#e9e9e9" : "#fff",
+                backgroundColor: index === activeIndex ? "#272727" : "#1E1E1E",
               }}
             >
               {city.name}
