@@ -5,6 +5,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import SearchInput from "./SearchInput";
+import Greeting from "./Greeting";
 
 function Navbar() {
   return (
@@ -36,7 +37,9 @@ function Navbar() {
       </div>
       <div>
         <h2>Hi Reza</h2>
-        <h2>Good morning</h2>
+        <h2 className="font-semibold text-2xl text-white">
+          <Greeting />
+        </h2>
       </div>
     </div>
   );
