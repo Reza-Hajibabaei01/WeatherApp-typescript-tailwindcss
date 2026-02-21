@@ -3,18 +3,20 @@ import {
   SignedOut,
   SignInButton,
   UserButton,
+  useUser,
 } from "@clerk/clerk-react";
 import SearchInput from "./SearchInput";
 import Greeting from "./Greeting";
 
 function Navbar() {
+  const {user} = useUser();
   return (
     <div className="flex flex-row-reverse py-1 px-12 justify-between items-center backdrop-blur-none">
       <div className="ml-8 ">
         {/* Show the sign-in and sign-up buttons when the user is signed out */}
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="bg-[#1E293B] hover:bg-[#0F172A]  text-white px-3 py-1 rounded-2xl">
+            <button className="bg-[#1E293B] hover:bg-[#0F172A]  text-white px-3 py-1.5 rounded-3xl">
               Sign In
             </button>
           </SignInButton>
@@ -36,7 +38,7 @@ function Navbar() {
         <SearchInput />
       </div>
       <div>
-        <h2>Hi Reza</h2>
+        <h2 className="font-light text-white text-lg">Hi, {user?.firstName}</h2>
         <h2 className="font-semibold text-2xl text-white">
           <Greeting />
         </h2>
@@ -44,5 +46,4 @@ function Navbar() {
     </div>
   );
 }
-
 export default Navbar;
