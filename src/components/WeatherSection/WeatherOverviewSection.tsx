@@ -1,4 +1,4 @@
-import CurrentWeatherCard from "./currentWeatherCard";
+import CurrentWeatherCard from "./CurrentWeatherCard";
 import WeatherHighlightsCard from "./WeatherHighlightsCard";
 import ForecastCard from "./ForecastCard";
 import OtherCountriesCard from "./OtherCountriesCard";

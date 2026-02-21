@@ -11,7 +11,7 @@ import Greeting from "./Greeting";
 function Navbar() {
   const {user} = useUser();
   return (
-    <div className="flex flex-row-reverse py-1 px-12 justify-between items-center backdrop-blur-none">
+    <div className="flex flex-row-reverse mb-1 justify-between items-center backdrop-blur-none">
       <div className="ml-8 ">
         {/* Show the sign-in and sign-up buttons when the user is signed out */}
         <SignedOut>
