@@ -9,11 +9,11 @@ function WeatherOverviewSection() {
       <div className="flex columns-2 gap-5">
         <div className="w-139 space-y-4">
           <CurrentWeatherCard />
-          <WeatherHighlightsCard />
+          <OtherCountriesCard />
         </div>
         <div className="w-166 space-y-4">
           <ForecastCard />
-          <OtherCountriesCard />
+          <WeatherHighlightsCard />
         </div>
       </div>
     </>

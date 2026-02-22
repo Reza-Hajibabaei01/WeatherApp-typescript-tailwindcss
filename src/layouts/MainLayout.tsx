@@ -6,7 +6,7 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="h-screen bg-[#0F0F0F] px-10">
+    <div className="bg-[#0F0F0F] px-10">
       <main>{children}</main>
     </div>
   );

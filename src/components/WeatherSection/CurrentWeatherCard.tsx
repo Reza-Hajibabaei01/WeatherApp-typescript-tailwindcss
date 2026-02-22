@@ -9,7 +9,7 @@ function CurrentWeatherCard() {
           <CiLocationOn />
           <h2 className="font-light">Tehran</h2>
         </div>
-        <div className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 rounded-xl font-semibold">
+        <div className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 cursor-pointer rounded-xl font-semibold">
           C<BiChevronDown />
         </div>
       </div>
@@ -30,7 +30,6 @@ function CurrentWeatherCard() {
             <h2 className="text-white font-normal text-lg">Rain</h2>
             <h3 className="text-white font-normal text-base">Fells 31°</h3>
           </div>
-          
         </div>
       </div>
     </div>
