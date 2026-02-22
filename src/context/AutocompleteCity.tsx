@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { BiSearch } from "react-icons/bi";
 
 // مدل داده شهر که از API یا لیست ثابت دریافت می‌شود
 export interface City {
@@ -96,9 +97,10 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
   };
 
   return (
-    <div className="relative " ref={wrapperRef}>
+    <div className="bg-[#1E1E1E] w-90 h-10 text-[#8a8a8a]  py-1 pl-6 flex space-x-2 items-center rounded-[36px] relative " ref={wrapperRef}>
+      <BiSearch />
       <input
-        className="bg-[#1E1E1E] outline-none w-90 h-10 text-[#8a8a8a] py-1 pl-6 pr-21.5 items-center rounded-[36px]"
+        className=" outline-none text-[#8a8a8a]"
         type="text"
         placeholder="Search your location ..."
         value={query}
