@@ -12,7 +12,7 @@ const Greeting: FC = () => {
 
   const getGreeting = (): string => {
     if (hour >= 0 && hour < 12) return "Good Morning";
-    if (hour >= 12 && hour < 18) return "Good Evening.";
+    if (hour >= 12 && hour < 18) return "Good Evening";
     return "Good Night";
   };
   return (
