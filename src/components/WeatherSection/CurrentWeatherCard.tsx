@@ -1,10 +1,8 @@
 import { BiChevronDown } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { useCity } from "../../context/CityContext";
 
 
 const CurrentWeatherCard:React.FC = () => {
-  const {selectedCity} = useCity();
   return (
     <div className="bg-[#1E1E1E] h-55 rounded-3xl p-4 space-y-2">
       <div className="flex justify-between items-center">
@@ -18,7 +16,7 @@ const CurrentWeatherCard:React.FC = () => {
       </div>
       <div className=" flex justify-between h-40 pb-2">
         <div className="w-1/3 space-y-1">
-          <h2 className="text-white text-3xl font-medium">Sunday</h2>
+          <h2 className="text-white text-3xl font-medium"></h2>
           <h6 className="text-white text-sm font-light">04 Aug,2024</h6>
         </div>
         <div className="w-1/3 flex justify-center items-end">
