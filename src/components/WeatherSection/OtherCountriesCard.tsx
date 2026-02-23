@@ -2,7 +2,7 @@ import { BiChevronDown } from "react-icons/bi";
 
 function OtherCountriesCard() {
   return (
-    <div className="bg-[#1E1E1E] rounded-3xl p-4 space-y-2">
+    <div className="bg-[#1E1E1E] rounded-3xl p-4 h-67.25 space-y-2">
       <div className="flex justify-between items-center">
         <h1 className="text-white font-medium text-lg">Others Countries</h1>
         <div className="flex justify-center items-end space-x-1 cursor-pointer text-white font-normal">

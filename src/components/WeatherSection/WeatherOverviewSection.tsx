@@ -12,8 +12,8 @@ function WeatherOverviewSection() {
           <OtherCountriesCard />
         </div>
         <div className="w-166 space-y-4">
-          <ForecastCard />
           <WeatherHighlightsCard />
+          <ForecastCard />
         </div>
       </div>
     </>
