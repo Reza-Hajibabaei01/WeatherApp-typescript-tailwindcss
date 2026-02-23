@@ -19,7 +19,7 @@ function CurrentWeatherCard() {
           <h6 className="text-white text-sm font-light">04 Aug,2024</h6>
         </div>
         <div className="w-1/3 flex justify-center items-end">
-          <img className="w-35 h-30 " src="../../../public/test.png" alt="" />
+          <img className="w-35 h-30 " src="../../../public/icons/icon6.png" alt="" />
         </div>
         <div className="w-1/3 flex flex-col justify-between">
           <div className="text-right">

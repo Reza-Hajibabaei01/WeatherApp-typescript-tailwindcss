@@ -17,7 +17,7 @@ function OtherCountriesCard() {
           <h6 className="text-white text-sm">Sunny</h6>
         </div>
         <div className="w-1/3 flex justify-center items-center">
-          <img className="w-15 h-15"  src="../../../public/test3.png" alt="" /> 
+          <img className="w-15 h-15"  src="../../../public/icons/icon7.png" alt="" /> 
         </div>
         <div className="w-1/3  flex justify-center items-center">
           <h3 className="text-white font-medium text-xl">
@@ -32,7 +32,7 @@ function OtherCountriesCard() {
           <h6 className="text-white text-sm">Mostly Sunny</h6>
         </div>
         <div className="w-1/3 flex justify-center items-center">
-          <img className="w-15 h-15" src="../../../public/test4.png" alt="" />
+          <img className="w-15 h-15" src="../../../public/icons/icon1.png" alt="" />
         </div>
         <div className="w-1/3  flex justify-center items-center">
           <h3 className="text-white font-medium text-xl">

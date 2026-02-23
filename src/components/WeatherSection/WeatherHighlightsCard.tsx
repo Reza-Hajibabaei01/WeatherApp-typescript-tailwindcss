@@ -45,7 +45,7 @@ function WeatherHighlightsCard() {
         {/* Sunrise */}
         <div className="bg-[#363636] rounded-2xl p-2 space-y-2 w-45 h-24 flex justify-between items-center">
           <div className="flex items-center justify-center  text-white space-x-1">
-            <img src="../../../public/test1.png" alt="" />
+            <img src="../../../public/Sunrise.png" alt="" />
           </div>
           <div className="flex flex-col justify-end">
             <h5 className="text-white font-normal text-sm">Sunrise</h5>
@@ -89,7 +89,7 @@ function WeatherHighlightsCard() {
         {/* Sunset */}
         <div className="bg-[#363636] rounded-2xl p-2 space-y-2 w-45 h-24 flex justify-between items-center">
           <div className="flex items-center justify-center  text-white space-x-1">
-            <img src="../../../public/test2.png" alt="" />
+            <img src="../../../public/Sunset.png" alt="" />
           </div>
           <div className="flex flex-col justify-end">
             <h5 className="text-white font-normal text-sm">Sunset</h5>
