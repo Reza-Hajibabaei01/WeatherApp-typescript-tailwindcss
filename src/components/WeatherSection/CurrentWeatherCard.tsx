@@ -4,10 +4,19 @@ import { useCity } from "../../context/CityContext";
 
 const CurrentWeatherCard: React.FC = () => {
   const { weatherData, selectedCity } = useCity();
-  // گرفتن روز هفته
-  const localDate = new Date(Date.now() + weatherData!.timezone  * 1000);
+  // گرفتن اطلاعات هفته
+  const localDate = new Date(Date.now() + (weatherData?.timezone  ?? 1 )* 1000);
   const dayName = localDate.toLocaleDateString("en-US", {
     weekday: "long",
+  });
+  const year = localDate.toLocaleDateString("en-US", {
+    year: "numeric",
+  });
+  const month = localDate.toLocaleDateString("en-US", {
+    month: "long",
+  });
+  const day = localDate.toLocaleDateString("en-US", {
+    day: "numeric",
   });
   return (
     <div className="bg-[#1E1E1E] h-55 rounded-3xl p-4 space-y-2">
@@ -27,7 +36,7 @@ const CurrentWeatherCard: React.FC = () => {
           <h2 className="text-white text-3xl font-medium">
             {dayName}
           </h2>
-          <h6 className="text-white text-sm font-light">04 Aug,2024</h6>
+          <h6 className="text-white text-sm font-light">{day} {month}, {year}</h6>
         </div>
         <div className="w-1/3 flex justify-center items-end">
           <img
