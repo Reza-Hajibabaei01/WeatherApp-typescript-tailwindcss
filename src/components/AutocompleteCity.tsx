@@ -81,7 +81,7 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
   // Enter برای انتخاب
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (filteredCities.length === 0) return;
-
+    
     if (e.key === "ArrowDown") {
       // استفاده از modulo برای اینکه اگر به انتهای لیست رسیدیم
       // دوباره به ابتدای لیست برگردیم
@@ -97,7 +97,10 @@ export const AutocompleteCity: React.FC<AutocompleteCityProps> = ({
   };
 
   return (
-    <div className="bg-[#1E1E1E] w-90 h-10 text-[#8a8a8a]  py-1 pl-6 flex space-x-2 items-center rounded-[36px] relative " ref={wrapperRef}>
+    <div
+      className="bg-[#1E1E1E] w-90 h-10 text-[#8a8a8a]  py-1 pl-6 flex space-x-2 items-center rounded-[36px] relative "
+      ref={wrapperRef}
+    >
       <BiSearch />
       <input
         className=" outline-none text-[#8a8a8a]"

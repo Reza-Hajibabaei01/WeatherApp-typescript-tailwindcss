@@ -1,12 +1,16 @@
 import React from "react";
-import { AutocompleteCity } from "../context/AutocompleteCity";
-import type { City } from "../context/AutocompleteCity";
+import { AutocompleteCity } from "./AutocompleteCity";
+import type { City } from "./AutocompleteCity";
 import citiesJson from "../data/cities.json";
+import { useCity } from "../context/CityContext";
+
 const cities: City[] = citiesJson;
 
 const SearchInput: React.FC = () => {
+  const {setSelectedCity} = useCity()
   const handleSelect = (city: City) => {
-    console.log("Selected city:", city);
+    // داده هارو به والد میفرستیم
+    setSelectedCity(city)
   };
 
   return (
@@ -17,3 +21,11 @@ const SearchInput: React.FC = () => {
 };
 
 export default SearchInput;
+
+
+// interface SearchInputProps {
+//   //  پروپی که کامپوننت والد میفرسته
+//   onCitySelect: (city: City) => void;
+// }
+
+
