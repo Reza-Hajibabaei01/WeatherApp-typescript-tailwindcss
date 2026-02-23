@@ -1,14 +1,15 @@
 import { BiChevronDown } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
+import { useCity } from "../../context/CityContext";
 
-
-const CurrentWeatherCard:React.FC = () => {
+const CurrentWeatherCard: React.FC = () => {
+  const { weatherData, selectedCity } = useCity();
   return (
     <div className="bg-[#1E1E1E] h-55 rounded-3xl p-4 space-y-2">
       <div className="flex justify-between items-center">
         <div className="bg-[#363636] py-0.5 px-2 text-white flex justify-center items-center space-x-1 rounded-xl">
           <CiLocationOn />
-          <h2 className="font-light">Tehran</h2>
+          <h2 className="font-light">{selectedCity?.name ?? "Electoral city"}</h2>
         </div>
         <div className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 cursor-pointer rounded-xl font-semibold">
           C<BiChevronDown />
@@ -20,7 +21,11 @@ const CurrentWeatherCard:React.FC = () => {
           <h6 className="text-white text-sm font-light">04 Aug,2024</h6>
         </div>
         <div className="w-1/3 flex justify-center items-end">
-          <img className="w-35 h-30 " src="../../../public/icons/icon6.png" alt="" />
+          <img
+            className="w-35 h-30 "
+            src="../../../public/icons/icon6.png"
+            alt=""
+          />
         </div>
         <div className="w-1/3 flex flex-col justify-between">
           <div className="text-right">
@@ -35,6 +40,6 @@ const CurrentWeatherCard:React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default CurrentWeatherCard;
