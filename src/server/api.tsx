@@ -14,7 +14,7 @@ export async function getCurrentWeather({
   lon: string;
 }) {
   const { data } = await client(
-    `/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`
+    `/weather?lat=${lat}&lon=${lon}&units=metric&appid=${APIKey}`
   );
   return data;
 }
