@@ -48,10 +48,10 @@ const CurrentWeatherCard: React.FC = () => {
         <div className="w-1/3 flex flex-col justify-between">
           <div className="text-right">
             <h2 className="text-white text-3xl font-medium">
-              {weatherData?.main.temp_max.toFixed(0)}°C
+              {weatherData?.main.temp_max.toFixed(0) ?? "--"}°C
             </h2>
             <h3 className="text-[#8a8a8a] font-medium text-lg">
-              /{weatherData?.main.temp_min.toFixed(0)}°C
+              /{weatherData?.main.temp_min.toFixed(0) ?? "--"}°C
             </h3>
           </div>
           <div className="text-right">

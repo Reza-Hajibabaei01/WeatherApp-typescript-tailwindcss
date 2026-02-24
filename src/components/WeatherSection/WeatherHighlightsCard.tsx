@@ -2,8 +2,32 @@ import { BiWind } from "react-icons/bi";
 import { LuDroplets } from "react-icons/lu";
 import { MdVisibility } from "react-icons/md";
 import { TbUvIndex } from "react-icons/tb";
+import { useCity } from "../../context/CityContext";
 
 function WeatherHighlightsCard() {
+  const { weatherData } = useCity();
+  // برای تبدیل متر به کیلومتر
+  const visibilityKm = weatherData?.visibility
+    ? weatherData.visibility / 1000
+    : "--";
+  // برای تبدیل ساعت طلوع ازیونیکس به عادی
+  const timeStampSunrise = weatherData?.sys.sunrise;
+  let timeSunrise = "--:--";
+  if (timeStampSunrise) {
+    timeSunrise = new Date(timeStampSunrise * 1000).toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+  // برای تبدیل ساعت غروب ازیونیکس به عادی
+  const timeStampSunset = weatherData?.sys.sunset;
+  let timeSunset = "--:--";
+  if (timeStampSunset) {
+    timeSunset = new Date(timeStampSunset * 1000).toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
   return (
     <div className=" flex flex-col bg-[rgb(30,30,30)] rounded-3xl p-4 space-y-2">
       <div>
@@ -18,7 +42,8 @@ function WeatherHighlightsCard() {
           </div>
           <div>
             <h2 className="text-white text-xl font-medium">
-              7.95 <span className="text-sm font-normal">km/h</span>
+              {weatherData?.wind.speed ?? "--"}{" "}
+              <span className="text-sm font-normal">{}km/h</span>
             </h2>
           </div>
           <div>
@@ -33,7 +58,8 @@ function WeatherHighlightsCard() {
           </div>
           <div>
             <h2 className="text-white text-xl font-medium whitespace-nowrap">
-              85 <span className="text-sm font-normal">%</span>
+              {weatherData?.main.humidity ?? "-- "}
+              <span className="text-sm font-normal"> %</span>
             </h2>
           </div>
           <div>
@@ -49,7 +75,7 @@ function WeatherHighlightsCard() {
           </div>
           <div className="flex flex-col justify-end">
             <h5 className="text-white font-normal text-sm">Sunrise</h5>
-            <h2 className="text-white font-medium text-lg">4:50 AM</h2>
+            <h2 className="text-white font-medium text-lg">{timeSunrise}</h2>
           </div>
         </div>
       </div>
@@ -77,7 +103,7 @@ function WeatherHighlightsCard() {
           </div>
           <div>
             <h2 className="text-white text-xl font-medium whitespace-nowrap">
-              5 <span className="text-sm font-normal">km</span>
+              {visibilityKm} <span className="text-sm font-normal">km</span>
             </h2>
           </div>
           <div>
@@ -93,7 +119,7 @@ function WeatherHighlightsCard() {
           </div>
           <div className="flex flex-col justify-end">
             <h5 className="text-white font-normal text-sm">Sunset</h5>
-            <h2 className="text-white font-medium text-lg">6:50 PM</h2>
+            <h2 className="text-white font-medium text-lg">{timeSunset}</h2>
           </div>
         </div>
       </div>
