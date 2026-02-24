@@ -28,6 +28,21 @@ function WeatherHighlightsCard() {
       minute: "2-digit",
     });
   }
+  // پیام میزان حالت های رطوبت هوا
+  const humidity = weatherData?.main.humidity;
+  let humidityMassage = "Choose a city";
+  if (humidity !== undefined) {
+    if (humidity >= 70) {
+      humidityMassage = "Very humid";
+    } else if (humidity >= 50) {
+      humidityMassage = "Humid";
+    } 
+    else if (humidity >= 30) {
+      humidityMassage = "Comfortable";
+    } else {
+      humidityMassage = "Dry";
+    }
+  }
   return (
     <div className=" flex flex-col bg-[rgb(30,30,30)] rounded-3xl p-4 space-y-2">
       <div>
@@ -64,7 +79,7 @@ function WeatherHighlightsCard() {
           </div>
           <div>
             <p className="text-white font-light text-[12px] whitespace-nowrap">
-              Humidity is good
+              {humidityMassage}
             </p>
           </div>
         </div>
