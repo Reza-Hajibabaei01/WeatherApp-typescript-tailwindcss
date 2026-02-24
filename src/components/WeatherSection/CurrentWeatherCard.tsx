@@ -4,6 +4,7 @@ import { useCity } from "../../context/CityContext";
 
 const CurrentWeatherCard: React.FC = () => {
   const { weatherData, selectedCity } = useCity();
+
   // گرفتن اطلاعات هفته
   const localDate = new Date(Date.now() + (weatherData?.timezone ?? 1) * 1000);
   const dayName = localDate.toLocaleDateString("en-US", {
@@ -18,12 +19,38 @@ const CurrentWeatherCard: React.FC = () => {
   const day = localDate.toLocaleDateString("en-US", {
     day: "numeric",
   });
+
   //بزرگ کردن حرف اول وضعیت هوا
   const capitalizeFirstLetter = (text: string) => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
+
   // دریافت وضعیت هوا از آرایه weather
   let description = weatherData?.weather?.[0].description;
+
+  // برای انتخاب آیکون با درنظر گرفتن وضعیت هوا
+  let imageSrc = "../../../public/icons/default.png";
+  if (description) {
+    if (description.includes("clear sky")) {
+      imageSrc = "../../../public/icons/clearSky.jpg";
+    } else if (description.includes("few clouds")) {
+      imageSrc = "../../../public/icons/fewClouds.jpg";
+    } else if (description.includes("scattered clouds")) {
+      imageSrc = "../../../public/icons/scatteredClouds.jpg";
+    } else if (description.includes("broken clouds")) {
+      imageSrc = "../../../public/icons/brokenClouds.jpg";
+    } else if (description.includes("shower rain")) {
+      imageSrc = "../../../public/icons/showerRain.jpg";
+    } else if (description.includes("thunderstorm")) {
+      imageSrc = "../../../public/icons/thunderstorm.jpg";
+    } else if (description.includes("snow")) {
+      imageSrc = "../../../public/icons/snow.jpg";
+    } else if (description.includes("mist")) {
+      imageSrc = "../../../public/icons/mist.jpg";
+    } else {
+      imageSrc = "../../../public/icons/rain.jpg";
+    }
+  }
 
   return (
     <div className="bg-[#1E1E1E] h-55 rounded-3xl p-4 space-y-2">
@@ -39,19 +66,18 @@ const CurrentWeatherCard: React.FC = () => {
         </div>
       </div>
       <div className=" flex justify-between h-40 pb-2">
+        {/* بخش اطلاعات روز و ماه و سال */}
         <div className="w-1/3 space-y-1">
           <h2 className="text-white text-3xl font-medium">{dayName}</h2>
           <h6 className="text-white text-sm font-light">
             {day} {month}, {year}
           </h6>
         </div>
+        {/*بخش آیکون وضعیت هوا */}
         <div className="w-1/3 flex justify-center items-end">
-          <img
-            className="w-35 h-30 "
-            src="../../../public/icons/icon6.png"
-            alt=""
-          />
+          <img className="w-35 h-30 " src={imageSrc} alt="" />
         </div>
+        {/* بخش دما فعلی */}
         <div className="w-1/3 flex flex-col justify-between">
           <div className="text-right">
             <h2 className="text-white text-3xl font-medium">
@@ -62,10 +88,12 @@ const CurrentWeatherCard: React.FC = () => {
             </h3>
           </div>
           <div className="text-right">
-            <h2 className="text-white font-normal text-lg whitespace-nowrap">
+            <h2 className="text-white font-medium text-base">
               {description && capitalizeFirstLetter(description)}
             </h2>
-            <h3 className="text-white font-normal text-base whitespace-nowrap">Feels like {weatherData?.main?.feels_like .toFixed(0)?? "--"} C°</h3>
+            <h3 className="text-white font-normal text-sm whitespace-nowrap">
+              Feels like {weatherData?.main?.feels_like.toFixed(0) ?? "--"} C°
+            </h3>
           </div>
         </div>
       </div>

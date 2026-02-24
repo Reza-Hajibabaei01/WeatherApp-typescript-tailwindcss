@@ -57,7 +57,7 @@ function WeatherHighlightsCard() {
           </div>
           <div>
             <h2 className="text-white text-xl font-medium">
-              {weatherData?.wind.speed ?? "--"}{" "}
+              {weatherData?.wind.speed.toFixed(1) ?? "--"}{" "}
               <span className="text-sm font-normal">{}km/h</span>
             </h2>
           </div>
