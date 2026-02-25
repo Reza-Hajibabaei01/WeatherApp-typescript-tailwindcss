@@ -62,7 +62,10 @@ const CurrentWeatherCard: React.FC = () => {
           </h2>
         </div>
         <div className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 cursor-pointer rounded-xl font-semibold">
-          C<BiChevronDown />
+          <select className="border border-[#363636] "  name="" id="">
+            <option className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 cursor-pointer rounded-xl font-semibold"  value="C">C</option>
+            <option className="bg-[#363636] py-0.5 px-3 text-white flex justify-center items-end space-x-1 cursor-pointer rounded-xl font-semibold" value="F">F</option>
+          </select>
         </div>
       </div>
       <div className=" flex justify-between h-40 pb-2">
