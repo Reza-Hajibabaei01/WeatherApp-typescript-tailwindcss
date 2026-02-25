@@ -10,14 +10,14 @@ function OtherCountriesCard() {
           <BiChevronDown />
         </div>
       </div>
-      <div className="bg-[#363636] px-3 py-2 rounded-2xl flex justify-between items-center">
+      <div className="bg-[#1E1E1E] px-3 py-2 rounded-2xl flex justify-between items-center">
         <div className="w-1/3">
           <h6 className="text-[#8a8a8a] text-[12px]">Australia</h6>
           <h2 className="text-white font-normal text-lg">Canberra</h2>
           <h6 className="text-white text-sm">Sunny</h6>
         </div>
         <div className="w-1/3 flex justify-center items-center">
-          <img className="w-15 h-15"  src="../../../public/icons/icon7.png" alt="" /> 
+          <img className="w-15 h-15"  src="../../../public/icons/snow.jpg" alt="" /> 
         </div>
         <div className="w-1/3  flex justify-center items-center">
           <h3 className="text-white font-medium text-xl">
@@ -25,14 +25,14 @@ function OtherCountriesCard() {
           </h3>
         </div>
       </div>
-      <div className="bg-[#363636] px-3 py-2 rounded-2xl flex justify-between items-center">
+      <div className="bg-[#1E1E1E] px-3 py-2 rounded-2xl flex justify-between items-center">
         <div className="w-1/3">
           <h6 className="text-[#8a8a8a] text-[12px]">Japan</h6>
           <h2 className="text-white font-normal text-lg">Tokyo</h2>
           <h6 className="text-white text-sm">Mostly Sunny</h6>
         </div>
         <div className="w-1/3 flex justify-center items-center">
-          <img className="w-15 h-15" src="../../../public/icons/icon1.png" alt="" />
+          <img className="w-15 h-15" src="../../../public/icons/rain.jpg" alt="" />
         </div>
         <div className="w-1/3  flex justify-center items-center">
           <h3 className="text-white font-medium text-xl">

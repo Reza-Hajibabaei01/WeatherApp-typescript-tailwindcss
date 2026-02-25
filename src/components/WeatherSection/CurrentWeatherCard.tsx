@@ -1,4 +1,3 @@
-import { BiChevronDown } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { useCity } from "../../context/CityContext";
 
