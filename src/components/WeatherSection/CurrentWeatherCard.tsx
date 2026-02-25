@@ -75,7 +75,7 @@ const CurrentWeatherCard: React.FC = () => {
         </div>
         {/*بخش آیکون وضعیت هوا */}
         <div className="w-1/3 flex justify-center items-end">
-          <img className="w-35 h-30 " src={imageSrc} alt="" />
+          <img className="w-30 h-25 " src={imageSrc} alt="" />
         </div>
         {/* بخش دما فعلی */}
         <div className="w-1/3 flex flex-col justify-between">
