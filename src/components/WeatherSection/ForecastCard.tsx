@@ -1,29 +1,36 @@
 import { useEffect, useState } from "react";
 import { getDailyWeather } from "../../server/ApiDayForecast";
 import Slider from "react-slick";
+import { useCity } from "../../context/CityContext";
 
 function ForecastCard() {
+
   const [forecast, setForecast] = useState<any>(null);
+
+  const { selectedCity } = useCity();
   useEffect(() => {
+    if(!selectedCity) return;
+
     const loadWeather = async () => {
-      const data = await getDailyWeather(35.7061, 51.4358); // lat lon شهر
+      const data = await getDailyWeather(Number(selectedCity?.lat), Number(selectedCity?.lon)); // lat lon شهر
       setForecast(data);
     };
 
     loadWeather();
-  }, []);
+  }, [selectedCity]);
+  
   // تنظیمات اسلایدر
   const settings = {
-  infinite: false,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,   
-  swipeToSlide: true,  
-  draggable: true,     
-  swipe: true,
-  arrows: false,
-  dots: false,
-};
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    draggable: true,
+    swipe: true,
+    arrows: false,
+    dots: false,
+  };
 
   return (
     <div className=" flex flex-col w-109 h-55.5 bg-[rgb(30,30,30)] rounded-3xl p-4 space-y-2">

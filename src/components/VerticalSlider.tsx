@@ -69,7 +69,9 @@ export default function WeatherSlider() {
     vertical: true,
     verticalSwiping: true,
     autoplay: true,
-    autoplaySpeed: 1500,
+    swipeToSlide: true,
+    draggable: true,
+    autoplaySpeed: 2000,
     arrows: false,
   };
 
@@ -92,7 +94,7 @@ export default function WeatherSlider() {
                 <h2 className="text-white font-normal text-base whitespace-nowrap">
                   {weather?.name ?? "-----"}
                 </h2>
-                <h6 className="text-white text-sm">{upperCase}</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">{upperCase}</h6>
               </div>
               <div className="w-1/3 flex justify-center items-center">
                 <img className="w-15 h-15" src={imageSrc} alt={description} />
