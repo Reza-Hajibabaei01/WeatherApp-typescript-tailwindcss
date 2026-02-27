@@ -4,8 +4,8 @@ export const getDailyWeather = async (lat: number, lon: number) => {
   const params = {
     latitude: lat,
     longitude: lon,
-    daily: ["temperature_2m_max", "temperature_2m_min", "weathercode"],
-    forecast_days: 10,
+    daily: ["temperature_2m_max", "weather_code"],
+    forecast_days: 16,
     timezone: "auto",
   };
 
@@ -27,7 +27,7 @@ export const getDailyWeather = async (lat: number, lon: number) => {
             response.utcOffsetSeconds()) * 1000
         )
     ),
-    apparent_temperature: daily.variables(0)!.valuesArray(),
-    weatherCode: daily.variables(1)!.valuesArray(),
+    temperature_2m_max: daily.variables(0)!.valuesArray(),
+    weather_code: daily.variables(1)!.valuesArray(),
   };
 };

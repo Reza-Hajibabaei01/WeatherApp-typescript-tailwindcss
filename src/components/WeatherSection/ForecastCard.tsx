@@ -42,9 +42,9 @@ function ForecastCard() {
       ) : (
         <Slider {...settings} className="box-border">
           {forecast.time.map((date: Date, i: number) => {
-            const temperature = forecast.apparent_temperature[i].toFixed(0);
+            const temperature = forecast.temperature_2m_max[i].toFixed(0);
             // برای انتخاب آیکون با درنظر گرفتن وضعیت هوا و داینامیک شدن آدرس عکس بدون دستور شرطی
-            const code = forecast.weatherCode[i].toFixed(0);
+            const code = forecast.weather_code[i].toFixed(0);
             const weatherMap: Record<number, string> = {
               0: "clear",
               1: "clear",
