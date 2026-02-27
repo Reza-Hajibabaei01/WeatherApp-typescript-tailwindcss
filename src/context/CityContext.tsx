@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import type { City } from "../components/AutocompleteCity";
-import { getCurrentWeather } from "../server/api";
-import type { WeatherData } from "../type/server";
+import { getCurrentWeather } from "../server/apiOverviewSection";
+import type { WeatherData } from "../type/type";
 
 interface CityContextType {
   selectedCity: City | null;

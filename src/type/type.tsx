@@ -53,4 +53,9 @@ export interface Sys {
   sunset: number
 }
 
+export interface City {
+  name: string;
+  lat: number;
+  lon: number;
+}
 
