@@ -1,4 +1,3 @@
-// services/weatherApi.ts
 import type { WeatherData } from "../type/type";
 
 const API_KEY = "dec5e7b01cbb0354933380de97939855";
