@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import type { City } from "../components/AutocompleteCity";
-import { getCurrentWeather } from "../server/apiOverviewSection";
+import { getCurrentWeather } from "../server/ApiOverviewSection";
 import type { WeatherData } from "../type/type";
 
 interface CityContextType {
@@ -35,7 +35,6 @@ export const CityProvider: React.FC<{ children: React.ReactNode }> = ({
         setLoading(false);
       });
   }, [selectedCity]);
-
   return (
     <CityContext.Provider
       value={{
