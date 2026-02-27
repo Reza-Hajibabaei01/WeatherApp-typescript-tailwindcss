@@ -71,8 +71,10 @@ export default function WeatherSlider() {
     autoplay: true,
     swipeToSlide: true,
     draggable: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 500,
     arrows: false,
+    centerMode:true,
+    centerPadding:"0px",
   };
 
   return (
@@ -85,11 +87,12 @@ export default function WeatherSlider() {
         const upperCase =
           description?.charAt(0).toUpperCase() + description.slice(1);
         return (
+          
           <div
-            className="overflow-hidden select-none cursor-pointer"
+            className="overflow-hidden flex flex-col justify-center items-center select-none cursor-pointer"
             key={index}
           >
-            <div className="bg-[#1E1E1E] border-2 border-[#363636] px-3 py-2 rounded-2xl flex justify-between items-center">
+            <div className="bg-[#1E1E1E] border-2 border-[#363636] px-3 py-2 rounded-2xl flex justify-between items-center h-20">
               <div className="w-1/3">
                 <h2 className="text-white font-normal text-base whitespace-nowrap">
                   {weather?.name ?? "-----"}
@@ -107,7 +110,7 @@ export default function WeatherSlider() {
                   </span>
                 </h3>
               </div>
-            </div>
+            </div> 
           </div>
         );
       })}

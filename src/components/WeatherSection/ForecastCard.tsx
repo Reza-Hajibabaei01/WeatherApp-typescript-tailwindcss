@@ -4,21 +4,23 @@ import Slider from "react-slick";
 import { useCity } from "../../context/CityContext";
 
 function ForecastCard() {
-
   const [forecast, setForecast] = useState<any>(null);
 
   const { selectedCity } = useCity();
   useEffect(() => {
-    if(!selectedCity) return;
+    if (!selectedCity) return;
 
     const loadWeather = async () => {
-      const data = await getDailyWeather(Number(selectedCity?.lat), Number(selectedCity?.lon)); // lat lon شهر
+      const data = await getDailyWeather(
+        Number(selectedCity?.lat),
+        Number(selectedCity?.lon),
+      ); // lat lon شهر
       setForecast(data);
     };
 
     loadWeather();
   }, [selectedCity]);
-  
+
   // تنظیمات اسلایدر
   const settings = {
     infinite: false,
@@ -35,45 +37,62 @@ function ForecastCard() {
   return (
     <div className=" flex flex-col w-109 h-55.5 bg-[rgb(30,30,30)] rounded-3xl p-4 space-y-2">
       <div>
-        <h1 className="text-white font-medium text-lg">10 Day Forecast </h1>
+        <h1 className="text-white font-medium text-lg">16 Day Forecast </h1>
       </div>
       {!forecast ? (
-        <p className="text-white">Loading...</p>
+        <h1 className="text-white font-bold text-2xl pt-8 flex justify-center items-center">
+          City not selected...
+        </h1>
       ) : (
         <Slider {...settings} className="box-border">
           {forecast.time.map((date: Date, i: number) => {
             const temperature = forecast.temperature_2m_max[i].toFixed(0);
             // برای انتخاب آیکون با درنظر گرفتن وضعیت هوا و داینامیک شدن آدرس عکس بدون دستور شرطی
-            const code = forecast.weather_code[i].toFixed(0);
+            const weatherCode = forecast.weather_code[i].toFixed(0);
             const weatherMap: Record<number, string> = {
-              0: "clear",
-              1: "clear",
-              2: "cloudy",
-              3: "cloudy",
-              45: "fog",
-              48: "fog",
-              51: "rain",
-              53: "rain",
-              55: "rain",
-              61: "rain",
-              63: "rain",
-              65: "rain",
-              80: "rain",
-              81: "rain",
-              82: "rain",
-              71: "snow",
-              73: "snow",
-              75: "snow",
-              95: "storm",
-            };
-            const weatherType = weatherMap[code];
-            const iconMap: Record<string, string> = {
-              clear: "/icons/clearSky.jpg",
-              cloudy: "/icons/fewClouds.jpg",
-              rain: "/icons/rain.jpg",
-              snow: "/icons/snow.jpg",
-              storm: "/icons/thunderstorm.jpg",
-              fog: "/icons/mist.jpg",
+              //  Clear sky
+              0: "/icons/clearSky.jpg",
+
+              // Mainly clear / partly cloudy
+              1: "/icons/fewClouds.jpg",
+              2: "/icons/fewClouds.jpg",
+
+              // Overcast
+              3: "/icons/brokenClouds.jpg",
+
+              // Fog / mist
+              45: "/icons/mist.jpg",
+              48: "/icons/mist.jpg",
+
+              // Drizzle
+              51: "/icons/showerRain.jpg",
+              53: "/icons/showerRain.jpg",
+              55: "/icons/showerRain.jpg",
+
+              // Rain
+              61: "/icons/rain.jpg",
+              63: "/icons/rain.jpg",
+              65: "/icons/rain.jpg",
+
+              // Snow
+              71: "/icons/snow.jpg",
+              73: "/icons/snow.jpg",
+              75: "/icons/snow.jpg",
+              77: "/icons/snow.jpg",
+
+              // Rain showers
+              80: "/icons/showerRain.jpg",
+              81: "/icons/showerRain.jpg",
+              82: "/icons/showerRain.jpg",
+
+              // Snow showers
+              85: "/icons/snow.jpg",
+              86: "/icons/snow.jpg",
+
+              // Thunderstorm
+              95: "/icons/thunderstorm.jpg",
+              96: "/icons/thunderstorm.jpg",
+              99: "/icons/thunderstorm.jpg",
             };
             return (
               <div key={i} className="px-2 select-none">
@@ -88,7 +107,7 @@ function ForecastCard() {
                   </div>
                   <img
                     className="h-16 w-16"
-                    src={iconMap[weatherType] ?? "/icons/showerRain.jpg"}
+                    src={weatherMap[weatherCode] ?? "/icons/showerRain.jpg"}
                     alt=""
                   />
                   <h3 className="text-white font-medium">{temperature}°C</h3>
